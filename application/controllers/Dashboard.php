@@ -12,7 +12,7 @@ class Dashboard extends AUTH_Controller
 
     public function index()
     {
-        $data['tittle']         = 'kanpa.co.id | Dashboard';
+        $data['tittle']         = 'Solace Properi | Dashboard';
         $data['userdata']       = $this->userdata;
         $data['content']        = 'page_admin/dashboard/dashboard';
         $data['script']         = 'page_admin/dashboard/dashboard_js';

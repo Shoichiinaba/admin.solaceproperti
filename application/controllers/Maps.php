@@ -17,7 +17,7 @@ class Maps extends AUTH_Controller
 
     public function index()
     {
-        $data['tittle'] = 'kanpa.co.id | Kelola Maps';
+        $data['tittle'] = 'Solace Properi | Kelola Maps';
         $api_url = 'https://admin.kanpa.co.id/Api/mapdata';
 
         $ch = curl_init();

@@ -13,7 +13,7 @@ class Kelola_video extends AUTH_Controller
 
     public function index()
     {
-        $data['tittle']          = 'kanpa.co.id | Video Reels';
+        $data['tittle']          = 'Solace Properi | Video Reels';
         $data['userdata']        = $this->userdata;
         $data['prop_select']     = $this->Reels_model->get_properti_select();
         $data['content']         = 'page_admin/reels/reels';

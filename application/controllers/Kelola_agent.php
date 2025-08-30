@@ -13,7 +13,7 @@ class Kelola_agent extends AUTH_Controller
 
     public function index()
     {
-        $data['tittle']          = 'kanpa.co.id | Agent';
+        $data['tittle']          = 'Solace Properi | Agent';
         $data['userdata']        = $this->userdata;
         $data['data_agent']      = $this->Agent_model->get_agent();
         $data['content']         = 'page_admin/agent/agent';

@@ -13,7 +13,7 @@ class Kelola_banner extends AUTH_Controller
 
     public function index()
     {
-        $data['tittle']          = 'kanpa.co.id | Banner';
+        $data['tittle']          = 'Solace Properi | Banner';
         $data['userdata']        = $this->userdata;
         $data['prop_select']     = $this->Banner_model->get_properti_select();
         $data['filter_type']     = $this->Banner_model->get_filter_type();

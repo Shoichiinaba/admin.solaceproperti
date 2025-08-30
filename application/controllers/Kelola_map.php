@@ -16,7 +16,7 @@ class Kelola_map extends AUTH_Controller
     public function index()
     {
 
-        $data['tittle']         = 'kanpa.co.id | Kelola Maps';
+        $data['tittle']         = 'Solace Properi | Kelola Maps';
         $data['userdata']       = $this->userdata;
         $data['map_prov']       = $this->KelolaMap_model->get_provinsi();
         $data['provinsi']       = $this->KelolaMap_model->get_provinsi_select();

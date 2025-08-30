@@ -15,7 +15,7 @@ class Properti extends AUTH_Controller
 
     public function index()
     {
-        $data['tittle']             = 'kanpa.co.id | Properti';
+        $data['tittle']             = 'Solace Properi | Properti';
         $data['userdata']           = $this->userdata;
         $data['type']               = $this->Properti_model->get_type();
         $data['type_properti']      = $this->Properti_model->get_filter_type();
