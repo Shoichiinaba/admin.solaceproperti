@@ -12,7 +12,7 @@ class Berita extends AUTH_Controller
     }
 
     public function index() {
-        $data['tittle'] = 'kanpa.co.id | Data Berita';
+        $data['tittle'] = 'Solace Properi | Data Berita';
         $data['userdata'] = $this->userdata;
         $data['content'] = 'page_admin/berita/berita';
         $data['script'] = 'page_admin/berita/berita_js';
@@ -20,7 +20,7 @@ class Berita extends AUTH_Controller
     }
 
     function data_artikel_berita() {
-        $data['tittle'] = 'kanpa.co.id | Data Berita';
+        $data['tittle'] = 'Solace Properi | Data Berita';
         $data['userdata'] = $this->userdata;
         $id_berita = $this->input->post('id-berita');
 
