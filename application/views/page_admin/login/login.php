@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Kanpa .co.id | Login</title>
+    <title>Splace Homes | Login</title>
 
     <meta name="description" content="" />
 
@@ -32,13 +32,13 @@
     <script src="assets/vendor/js/helpers.js"></script>
     <style>
     .btn-primary {
-        background: linear-gradient(to right, #163D88, #129BCD);
+        background: linear-gradient(to right, #1ca785, #00392b);
         border: none;
         color: white;
     }
 
     .btn-primary:hover {
-        background: linear-gradient(to right, #A30500, #CD1299);
+        background: linear-gradient(to right, #f97316, rgb(150, 53, 9));
         border: none;
         color: white;
     }

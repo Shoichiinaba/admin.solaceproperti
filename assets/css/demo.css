@@ -29,8 +29,8 @@
 
 .app-brand-logo img {
   width: 100px;
-  height: 25px;
-  object-fit: cover;
+  height: 32px;
+  object-fit: contain;
 }
 
 .app-brand-logo.demo svg {

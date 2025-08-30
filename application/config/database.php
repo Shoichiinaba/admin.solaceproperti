@@ -14,12 +14,13 @@ $db['default'] = array(
 	// Offline development
 	// 'username' => 'root',
 	// 'password' => '',
+	'database' => 'kina3126_mp_kanpa.co.id',
 
 	 // online development (productions)
 	 'username' => 'u280959498_solace_mp',
 	 'password' => 'Solace12345!',
 
-	'database' => 'u280959498_solace_mp',
+	// 'database' => 'u280959498_solace_mp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
