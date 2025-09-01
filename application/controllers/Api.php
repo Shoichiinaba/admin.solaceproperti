@@ -415,9 +415,17 @@ class Api extends REST_Controller
         $berita = $this->db->get()->result();
 
         if ($berita) {
-            $this->response($berita, 200);
+            $this->response([
+                'status'  => 'success',
+                'message' => 'Data artikel berhasil ditemukan',
+                'data'    => $berita
+            ], 200);
         } else {
-            $this->response(array('status' => 'not found'), 404);
+            $this->response([
+                'status'  => 'success',
+                'message' => 'Data artikel kosong',
+                'data'    => []
+            ], 200);
         }
     }
 
@@ -467,15 +475,38 @@ class Api extends REST_Controller
     {
         if (!$this->verify_api_key()) return;
 
-        $params = array(
-            'viewer_berita' => $this->put('viewer_berita'),
-        );
-        $this->db->where('id_berita', $this->put('id_berita'));
-        $execute = $this->db->update('berita', $params);
+        $id = $this->put('id_berita');
+
+        if (!$id) {
+            $this->response([
+                'status'  => 'fail',
+                'message' => 'ID artikel wajib diisi'
+            ], 400);
+            return;
+        }
+
+        // Increment kolom view_berita
+        $this->db->set('view_berita', 'view_berita+1', FALSE);
+        $this->db->where('id_berita', $id);
+        $execute = $this->db->update('berita');
+
         if ($execute) {
-            $this->response(array('status' => 'success'), 201);
+            // Ambil jumlah terbaru setelah update
+            $updated = $this->db->get_where('berita', ['id_berita' => $id])->row();
+
+            $this->response([
+                'status'  => 'success',
+                'message' => 'Viewer artikel berhasil ditambahkan',
+                'data'    => [
+                    'id_berita'   => $updated->id_berita,
+                    'view_berita' => $updated->view_berita
+                ]
+            ], 200);
         } else {
-            $this->response(array('status' => 'fail'), 502);
+            $this->response([
+                'status'  => 'fail',
+                'message' => 'Gagal update viewer artikel'
+            ], 502);
         }
     }
 
