@@ -423,7 +423,7 @@ class Api extends REST_Controller
 
     // article api
 
-    function article_get()
+   function article_get()
     {
         if (!$this->verify_api_key()) return;
 
@@ -449,11 +449,19 @@ class Api extends REST_Controller
         $berita = $this->db->get()->result();
 
         if ($berita) {
-            $this->response($berita, 200);
+            $this->response([
+                'status' => 'success',
+                'data'   => $berita
+            ], 200);
         } else {
-            $this->response(array('status' => 'not found'), 404);
+            $this->response([
+                'status'  => 'success',
+                'message' => 'Data artikel kosong',
+                'data'    => []
+            ], 200);
         }
     }
+
 
     function article_put()
     {

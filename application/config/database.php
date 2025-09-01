@@ -12,14 +12,14 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	// Offline development
-	// 'database' => 'kina3126_mp_kanpa.co.id',
-	// 'username' => 'root',
-	// 'password' => '',
+	'database' => 'kina3126_mp_kanpa.co.id',
+	'username' => 'root',
+	'password' => '',
 
 	 // online development (productions)
-	 'database' => 'u280959498_solace_mp',
-	 'username' => 'u280959498_solace_mp',
-	 'password' => 'Solace12345!',
+	//  'database' => 'u280959498_solace_mp',
+	//  'username' => 'u280959498_solace_mp',
+	//  'password' => 'Solace12345!',
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
