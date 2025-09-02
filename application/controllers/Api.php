@@ -120,22 +120,6 @@ class Api extends REST_Controller
         }
     }
 
-    function properti_put()
-    {
-        if (!$this->verify_api_key()) return;
-
-        $params = array(
-            'viewer' => $this->put('viewer'),
-        );
-        $this->db->where('id_properti', $this->put('id_properti'));
-        $execute = $this->db->update('properti', $params);
-        if ($execute) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
-        }
-    }
-
     function reels_get()
     {
         if (!$this->verify_api_key()) return;
@@ -470,7 +454,7 @@ class Api extends REST_Controller
         }
     }
 
-
+// kode untuk menambahkan viewer artikel
     function article_put()
     {
         if (!$this->verify_api_key()) return;
@@ -506,6 +490,47 @@ class Api extends REST_Controller
             $this->response([
                 'status'  => 'fail',
                 'message' => 'Gagal update viewer artikel'
+            ], 502);
+        }
+    }
+
+    // kode untuk menambahkan viewer pada properti
+    function properti_put()
+    {
+        if (!$this->verify_api_key()) return;
+
+        $id = $this->put('id_properti');
+
+        log_message('debug', 'PUT properti, id_properti = ' . print_r($id, true));
+
+        if (!$id) {
+            $this->response([
+                'status'  => 'fail',
+                'message' => 'ID properti wajib diisi'
+            ], 400);
+            return;
+        }
+
+        // Increment kolom viewer
+        $this->db->set('viewer', 'viewer+1', FALSE);
+        $this->db->where('id_properti', $id);
+        $execute = $this->db->update('properti');
+
+        if ($execute) {
+            $updated = $this->db->get_where('properti', ['id_properti' => $id])->row();
+
+            $this->response([
+                'status'  => 'success',
+                'message' => 'Viewer properti berhasil ditambahkan',
+                'data'    => [
+                    'id_properti' => $updated->id_properti,
+                    'viewer'      => $updated->viewer
+                ]
+            ], 200);
+        } else {
+            $this->response([
+                'status'  => 'fail',
+                'message' => 'Gagal update viewer properti'
             ], 502);
         }
     }
